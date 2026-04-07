@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { honeyTypes, translations } from '../data/honeyData';
 import { useLanguage } from '../LanguageContext';
-import { Info, MapPin, Sparkles, Droplets } from 'lucide-react';
+import { Info, MapPin, Sparkles, Droplets, X } from 'lucide-react';
 
 export default function HoneyTypes() {
   const { language } = useLanguage();
@@ -63,7 +63,7 @@ export default function HoneyTypes() {
               alignItems: 'center',
               justifyContent: 'center',
               zIndex: 1000,
-              padding: '20px'
+              padding: '1rem'
             }}
             onClick={() => setSelectedId(null)}
           >
@@ -71,64 +71,67 @@ export default function HoneyTypes() {
               layoutId={selectedId}
               className="card"
               style={{ 
-                maxWidth: '800px', 
+                maxWidth: '900px', 
                 width: '100%', 
                 maxHeight: '90vh', 
                 overflowY: 'auto',
                 cursor: 'auto',
                 position: 'relative',
-                color: 'var(--foreground)'
+                color: 'var(--foreground)',
+                padding: '0'
               }}
               onClick={(e) => e.stopPropagation()}
             >
               <button 
                 onClick={() => setSelectedId(null)}
-                style={{ position: 'absolute', top: '20px', right: '20px', background: 'none', border: 'none', fontSize: '1.5rem', cursor: 'pointer' }}
+                style={{ position: 'sticky', top: '15px', float: 'right', marginRight: '15px', zIndex: 1, background: 'var(--white)', border: 'none', borderRadius: '50%', padding: '0.5rem', cursor: 'pointer', boxShadow: '0 4px 10px rgba(0,0,0,0.1)' }}
               >
-                ✕
+                <X size={20} />
               </button>
 
-              <div className="grid grid-cols-2" style={{ gap: '3rem' }}>
-                <div>
-                  <h2 style={{ marginBottom: '1rem', color: 'var(--secondary)' }}>{selectedHoney.name}</h2>
-                  <p style={{ marginBottom: '1.5rem' }}>{selectedHoney.description}</p>
-                  
-                  <div style={{ marginBottom: '2rem' }}>
-                    <h4 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
-                      <Droplets size={18} /> {t.traits_label}
-                    </h4>
-                    <ul style={{ paddingLeft: '1.5rem' }}>
-                      {selectedHoney.traits.map((t, idx) => <li key={idx}>{t}</li>)}
-                    </ul>
+              <div style={{ padding: '2.5rem' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2.5rem' }}>
+                  <div>
+                    <h2 style={{ marginBottom: '1rem', color: 'var(--secondary)', fontSize: '2.5rem' }}>{selectedHoney.name}</h2>
+                    <p style={{ marginBottom: '1.5rem', fontSize: '1.1rem' }}>{selectedHoney.description}</p>
+                    
+                    <div style={{ marginBottom: '2rem' }}>
+                      <h4 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem' }}>
+                        <Droplets size={18} /> {t.traits_label}
+                      </h4>
+                      <ul style={{ paddingLeft: '1.5rem', fontSize: '0.95rem' }}>
+                        {selectedHoney.traits.map((t, idx) => <li key={idx} style={{ marginBottom: '0.25rem' }}>{t}</li>)}
+                      </ul>
+                    </div>
+
+                    <div style={{ marginBottom: '2rem' }}>
+                      <h4 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
+                        <MapPin size={18} /> {t.origin_label}
+                      </h4>
+                      <p style={{ fontSize: '0.95rem' }}>{selectedHoney.origin}</p>
+                    </div>
                   </div>
 
-                  <div style={{ marginBottom: '2rem' }}>
-                    <h4 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
-                      <MapPin size={18} /> {t.origin_label}
-                    </h4>
-                    <p style={{ fontSize: '0.9rem' }}>{selectedHoney.origin}</p>
-                  </div>
-                </div>
+                  <div>
+                    <div className="card" style={{ background: 'var(--primary)', color: 'var(--foreground)', marginBottom: '1.5rem', padding: '1.5rem' }}>
+                      <h4 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
+                        <Sparkles size={18} /> {t.benefits_label}
+                      </h4>
+                      <ul style={{ paddingLeft: '1rem', listStyle: 'none', fontSize: '0.95rem' }}>
+                        {selectedHoney.benefits.map((b, idx) => (
+                          <li key={idx} style={{ marginBottom: '0.5rem', display: 'flex', gap: '0.5rem' }}>
+                            ✓ {b}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
 
-                <div>
-                  <div className="card" style={{ background: 'var(--primary)', color: 'var(--foreground)', marginBottom: '1.5rem' }}>
-                    <h4 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '1rem' }}>
-                      <Sparkles size={18} /> {t.benefits_label}
-                    </h4>
-                    <ul style={{ paddingLeft: '1rem', listStyle: 'none' }}>
-                      {selectedHoney.benefits.map((b, idx) => (
-                        <li key={idx} style={{ marginBottom: '0.5rem', display: 'flex', gap: '0.5rem' }}>
-                          ✓ {b}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="card" style={{ background: 'var(--glass-dark)' }}>
-                    <h4 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
-                      <Info size={18} /> {t.uniqueness_label}
-                    </h4>
-                    <p style={{ fontSize: '0.9rem' }}>{selectedHoney.uniqueness}</p>
+                    <div className="card" style={{ background: 'var(--glass-dark)', padding: '1.5rem' }}>
+                      <h4 style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
+                        <Info size={18} /> {t.uniqueness_label}
+                      </h4>
+                      <p style={{ fontSize: '0.95rem' }}>{selectedHoney.uniqueness}</p>
+                    </div>
                   </div>
                 </div>
               </div>

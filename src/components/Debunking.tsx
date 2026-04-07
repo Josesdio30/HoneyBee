@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { myths, translations } from '../data/honeyData';
 import { useLanguage } from '../LanguageContext';
@@ -17,23 +16,30 @@ export default function Debunking() {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        style={{ textAlign: 'center', marginBottom: '5rem' }}
+        style={{ textAlign: 'center', marginBottom: '4rem' }}
       >
         <span className="tag" style={{ background: 'var(--secondary)', color: 'white' }}>{t.myth_tag}</span>
-        <h2 style={{ fontSize: '3rem', marginTop: '1rem' }}>{t.myth_title}</h2>
-        <p style={{ maxWidth: '700px', margin: '1rem auto', opacity: 0.8, fontSize: '1.2rem' }}>
+        <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', marginTop: '1rem' }}>{t.myth_title}</h2>
+        <p style={{ maxWidth: '700px', margin: '1rem auto', opacity: 0.8, fontSize: '1.1rem' }}>
           {t.myth_desc}
         </p>
       </motion.div>
 
       {/* Myth Flip Cards */}
-      <div className="grid grid-cols-2" style={{ gap: '3rem', perspective: '1000px', marginBottom: '6rem' }}>
+      <div style={{ 
+        display: 'grid', 
+        gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', 
+        gap: '2.5rem', 
+        perspective: '1000px', 
+        marginBottom: '6rem' 
+      }}>
         {list.map((myth, idx) => (
-          <div key={idx} style={{ height: '320px', position: 'relative' }}>
+          <div key={idx} style={{ height: '350px', position: 'relative' }}>
              <motion.div
                className="flip-card-inner"
                initial={false}
                whileHover={{ rotateY: 180 }}
+               whileTap={{ rotateY: 180 }}
                transition={{ duration: 0.8, type: 'spring', stiffness: 260, damping: 20 }}
                style={{
                  width: '100%',
@@ -51,30 +57,30 @@ export default function Debunking() {
                   WebkitBackfaceVisibility: 'hidden',
                   background: 'var(--white)',
                   borderRadius: '32px',
-                  padding: '2.5rem',
+                  padding: '2rem',
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'center',
                   boxShadow: '0 15px 35px rgba(163, 123, 77, 0.1)',
                   border: '1px solid rgba(163, 123, 77, 0.05)'
                 }}>
-                  <div style={{ display: 'flex', gap: '1.25rem', alignItems: 'center', marginBottom: '1.5rem' }}>
-                    <div style={{ background: 'var(--background)', color: 'var(--secondary)', padding: '1rem', borderRadius: '20px' }}>
-                      <HelpCircle size={32} />
+                  <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', marginBottom: '1.25rem' }}>
+                    <div style={{ background: 'var(--background)', color: 'var(--secondary)', padding: '0.75rem', borderRadius: '15px' }}>
+                      <HelpCircle size={24} />
                     </div>
                     <div>
-                      <h4 style={{ margin: 0, opacity: 0.5, fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '1.5px', fontWeight: 800 }}>
+                      <h4 style={{ margin: 0, opacity: 0.5, fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '1px' }}>
                         {language === 'id' ? 'Konon Katanya...' : 'The Myth...'}
                       </h4>
-                      <h3 style={{ margin: 0, fontSize: '1.75rem' }}>{myth.title}</h3>
+                      <h3 style={{ margin: 0, fontSize: '1.5rem' }}>{myth.title}</h3>
                     </div>
                   </div>
-                  <p style={{ fontStyle: 'italic', opacity: 0.8, fontSize: '1.1rem', lineHeight: '1.6' }}>
+                  <p style={{ fontStyle: 'italic', opacity: 0.8, fontSize: '1rem', lineHeight: '1.5' }}>
                     “{myth.description}”
                   </p>
-                  <div style={{ marginTop: 'auto', display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--secondary)', fontWeight: 800, fontSize: '0.9rem' }}>
+                  <div style={{ marginTop: 'auto', textAlign: 'center', opacity: 0.4, fontSize: '0.8rem', fontWeight: 700 }}>
                     <motion.span animate={{ opacity: [0.4, 1, 0.4] }} transition={{ repeat: Infinity, duration: 2 }}>
-                      Hover untuk melihat fakta...
+                      {language === 'id' ? 'Klik/Tap untuk fakta' : 'Tap for fact'}
                     </motion.span>
                   </div>
                 </div>
@@ -90,31 +96,30 @@ export default function Debunking() {
                   background: 'var(--primary)',
                   color: 'var(--foreground)',
                   borderRadius: '32px',
-                  padding: '2.5rem',
+                  padding: '2rem',
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'center',
                   boxShadow: '0 15px 35px rgba(250, 195, 41, 0.2)'
                 }}>
-                  <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center', marginBottom: '1rem', fontWeight: 900, fontSize: '1.1rem' }}>
-                    <AlertCircle size={24} />
+                  <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center', marginBottom: '1rem', fontWeight: 900 }}>
+                    <AlertCircle size={20} />
                     {t.fact_label}
                   </div>
-                  <p style={{ marginBottom: '1.5rem', fontSize: '1rem', lineHeight: '1.6' }}>{myth.fact}</p>
+                  <p style={{ marginBottom: '1.5rem', fontSize: '0.95rem', lineHeight: '1.5' }}>{myth.fact}</p>
                   <div style={{ 
-                    padding: '1.25rem', 
+                    padding: '1rem', 
                     background: 'rgba(255,255,255,0.4)', 
-                    borderRadius: '20px', 
+                    borderRadius: '16px', 
                     fontWeight: 800, 
                     display: 'flex', 
-                    gap: '0.75rem', 
+                    gap: '0.5rem', 
                     alignItems: 'center',
-                    fontSize: '0.95rem',
-                    border: '1px solid rgba(255,255,255,0.5)'
+                    fontSize: '0.9rem'
                   }}>
-                    <CheckCircle2 size={24} style={{ color: '#27ae60' }} />
-                    <div>
-                      <span style={{ opacity: 0.6, display: 'block', fontSize: '0.75rem', textTransform: 'uppercase' }}>{t.conclusion_label}</span>
+                    <CheckCircle2 size={20} style={{ color: '#27ae60' }} />
+                    <div style={{ flex: 1 }}>
+                      <span style={{ fontSize: '0.65rem', textTransform: 'uppercase', opacity: 0.6, display: 'block' }}>{t.conclusion_label}</span>
                       {myth.conclusion}
                     </div>
                   </div>
@@ -131,8 +136,12 @@ export default function Debunking() {
         viewport={{ once: true }}
         style={{ textAlign: 'center' }}
       >
-        <h3 style={{ marginBottom: '3rem', fontSize: '2rem' }}>{t.accurate_way_title}</h3>
-        <div className="grid grid-cols-4" style={{ gap: '1.5rem' }}>
+        <h3 style={{ marginBottom: '3rem', fontSize: '1.75rem' }}>{t.accurate_way_title}</h3>
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', 
+          gap: '1.5rem' 
+        }}>
           {[
             { tag: '🏷️', text: t.accurate_1, color: '#ffecb3' },
             { tag: '🏪', text: t.accurate_2, color: '#e1f5fe' },
@@ -162,12 +171,11 @@ export default function Debunking() {
                 display: 'flex', 
                 alignItems: 'center', 
                 justifyContent: 'center',
-                borderRadius: '24px',
-                marginBottom: '0.5rem'
+                borderRadius: '24px'
               }}>
                 {item.tag}
               </div>
-              <p style={{ fontSize: '1rem', fontWeight: 800, color: 'var(--secondary)', lineHeight: 1.3 }}>{item.text}</p>
+              <p style={{ fontSize: '1rem', fontWeight: 800, color: 'var(--secondary)' }}>{item.text}</p>
             </motion.div>
           ))}
         </div>

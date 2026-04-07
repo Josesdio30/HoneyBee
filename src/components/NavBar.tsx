@@ -22,28 +22,29 @@ export default function NavBar() {
         background: 'rgba(253, 239, 212, 0.8)',
         backdropFilter: 'blur(10px)',
         borderBottom: '1px solid rgba(163, 123, 77, 0.1)',
-        padding: '1rem 0'
+        padding: '0.75rem 0'
       }}
     >
       <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer' }} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-          <span style={{ fontSize: '1.5rem' }}>🍯</span>
-          <span style={{ fontWeight: 800, color: 'var(--secondary)', fontSize: '1.2rem' }}>{t.brand}</span>
+          <span style={{ fontSize: '1.25rem' }}>🍯</span>
+          <span style={{ fontWeight: 800, color: 'var(--secondary)', fontSize: 'clamp(0.9rem, 2vw, 1.2rem)' }}>{t.brand}</span>
         </div>
 
-        <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
-          <div style={{ display: 'flex', gap: '0.5rem', background: 'var(--glass-dark)', padding: '0.25rem', borderRadius: '99px' }}>
+        <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center' }}>
+          <div style={{ display: 'flex', background: 'var(--glass-dark)', padding: '0.2rem', borderRadius: '99px', border: '1px solid rgba(0,0,0,0.05)' }}>
             <button 
               onClick={() => setLanguage('id')}
               style={{
                 borderRadius: '99px',
-                padding: '0.4rem 1rem',
+                padding: '0.4rem 0.8rem',
                 border: 'none',
                 background: language === 'id' ? 'var(--primary)' : 'transparent',
+                color: 'var(--foreground)',
                 fontWeight: 700,
                 cursor: 'pointer',
                 transition: 'all 0.2s',
-                fontSize: '0.85rem'
+                fontSize: '0.75rem'
               }}
             >
               ID
@@ -52,20 +53,21 @@ export default function NavBar() {
               onClick={() => setLanguage('en')}
               style={{
                 borderRadius: '99px',
-                padding: '0.4rem 1rem',
+                padding: '0.4rem 0.8rem',
                 border: 'none',
                 background: language === 'en' ? 'var(--primary)' : 'transparent',
+                color: 'var(--foreground)',
                 fontWeight: 700,
                 cursor: 'pointer',
                 transition: 'all 0.2s',
-                fontSize: '0.85rem'
+                fontSize: '0.75rem'
               }}
             >
               EN
             </button>
           </div>
           
-          <Globe size={18} color="var(--tertiary)" />
+          <Globe size={16} color="var(--tertiary)" />
         </div>
       </div>
     </motion.nav>
