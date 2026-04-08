@@ -14,29 +14,14 @@ export default function Hero() {
   };
 
   return (
-    <section className="section" style={{ minHeight: '100vh', position: 'relative', overflow: 'hidden', paddingBottom: '120px' }}>
+    <section className="section" style={{ minHeight: '100vh', position: 'relative', overflow: 'hidden' }}>
       <div className="honey-hero-blobs">
         <div className="blob" style={{ background: 'var(--primary)', width: '400px', height: '400px', top: '-100px', right: '-100px' }} />
         <div className="blob" style={{ background: 'var(--secondary)', width: '300px', height: '300px', bottom: '-50px', left: '-50px' }} />
       </div>
       
-      <div className="container" style={{ 
-        display: 'flex', 
-        flexDirection: 'column',
-        gap: '3rem',
-        alignItems: 'center',
-        textAlign: 'center'
-      }}>
-        {/* Mobile First: Text then Image, but on Desktop it could be side by side. 
-            I'll use a responsive container style. */}
-        <div style={{ 
-          display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', 
-          alignItems: 'center', 
-          gap: '4rem',
-          width: '100%',
-          textAlign: 'left'
-        }}>
+      <div className="container">
+        <div className="responsive-grid" style={{ alignItems: 'center' }}>
           <motion.div
              initial={{ opacity: 0, x: -50 }}
              animate={{ opacity: 1, x: 0 }}

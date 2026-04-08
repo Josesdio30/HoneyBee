@@ -49,7 +49,7 @@ export interface Translation {
 
 export const translations: Record<Language, Translation> = {
   id: {
-    brand: "Honeybee",
+    brand: "HoneyVerse",
     intro_tag: "Mengenal Madu Indonesia 🍯",
     hero_title: <>Eksplorasi <br /> Ragam <span style={{ color: 'var(--primary)', WebkitTextStroke: '1px var(--secondary)' }}>Keajaiban</span> <br /> Madu Nusantara</>,
     hero_desc: "Indonesia memiliki berbagai jenis madu yang berasal dari nektar bunga yang berbeda. Temukan rahasia di balik setiap tetesan manisnya.",
@@ -90,10 +90,10 @@ export const translations: Record<Language, Translation> = {
     quiz_score: "Skor kamu:",
     quiz_retry: "Coba Lagi",
     footer_desc: "Mari lestarikan madu asli Indonesia dengan membeli produk dari sumber yang terpercaya dan mendukung peternak lokal.",
-    footer_copy: "© 2026 Honeybee Indonesia. Dibuat dengan ❤️ untuk pecinta madu Nusantara."
+    footer_copy: "© 2026 HoneyVerse Indonesia. Dibuat dengan ❤️ untuk pecinta madu Nusantara."
   },
   en: {
-    brand: "Honeybee Indonesia",
+    brand: "HoneyVerse Indonesia",
     intro_tag: "Meet Indonesian Honey 🍯",
     hero_title: <>Explore <br /> The <span style={{ color: 'var(--primary)', WebkitTextStroke: '1px var(--secondary)' }}>Wonder</span> <br /> of Nusantara Honey</>,
     hero_desc: "Indonesia has various types of honey derived from distinct flower nectars. Discover the secrets behind every sweet drop.",
@@ -134,7 +134,7 @@ export const translations: Record<Language, Translation> = {
     quiz_score: "Your score:",
     quiz_retry: "Try Again",
     footer_desc: "Protect Indonesian honey by purchasing from trusted sources and supporting local beekeepers.",
-    footer_copy: "© 2026 Honeybee Indonesia. Made with ❤️ for Nusantara honey lovers."
+    footer_copy: "© 2026 HoneyVerse Indonesia. Made with ❤️ for Nusantara honey lovers."
   }
 };
 

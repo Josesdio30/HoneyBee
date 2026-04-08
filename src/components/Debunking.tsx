@@ -26,10 +26,7 @@ export default function Debunking() {
       </motion.div>
 
       {/* Myth Flip Cards */}
-      <div style={{ 
-        display: 'grid', 
-        gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', 
-        gap: '2.5rem', 
+      <div className="grid grid-cols-2" style={{ 
         perspective: '1000px', 
         marginBottom: '6rem' 
       }}>
@@ -137,11 +134,7 @@ export default function Debunking() {
         style={{ textAlign: 'center' }}
       >
         <h3 style={{ marginBottom: '3rem', fontSize: '1.75rem' }}>{t.accurate_way_title}</h3>
-        <div style={{ 
-          display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', 
-          gap: '1.5rem' 
-        }}>
+        <div className="grid grid-cols-4">
           {[
             { tag: '🏷️', text: t.accurate_1, color: '#ffecb3' },
             { tag: '🏪', text: t.accurate_2, color: '#e1f5fe' },
