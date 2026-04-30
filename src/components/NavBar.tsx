@@ -4,10 +4,22 @@ import { useLanguage } from '../LanguageContext';
 import { translations } from '../data/honeyData';
 import { motion } from 'framer-motion';
 import { Globe } from 'lucide-react';
+import { usePathname, useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 export default function NavBar() {
   const { language, setLanguage } = useLanguage();
   const t = translations[language];
+  const pathname = usePathname();
+  const router = useRouter();
+
+  const handleNavClick = (id: string) => {
+    if (pathname !== '/') {
+      router.push(`/#${id}`);
+    } else {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <motion.nav 
@@ -29,6 +41,55 @@ export default function NavBar() {
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', cursor: 'pointer' }} onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
           <span style={{ fontSize: '1.25rem' }}>🍯</span>
           <span style={{ fontWeight: 800, color: 'var(--secondary)', fontSize: 'clamp(0.9rem, 2vw, 1.2rem)' }}>{t.brand}</span>
+        </div>
+
+        <div style={{ display: 'flex', gap: '1.25rem', alignItems: 'center', flex: 1, justifyContent: 'center' }} className="nav-links">
+          {[
+            { id: 'hero', label: t.nav_home },
+            { id: 'explore', label: t.nav_types },
+            { id: 'bees-flowers', label: t.nav_edu },
+            { id: 'authenticity-video', label: t.nav_video },
+            { id: 'debunking', label: t.nav_myth },
+            { id: 'quiz', label: t.nav_quiz },
+          ].map((item) => (
+            <button
+              key={item.id}
+              onClick={() => handleNavClick(item.id)}
+              style={{
+                background: 'none',
+                border: 'none',
+                color: 'var(--secondary)',
+                fontWeight: 600,
+                fontSize: '0.85rem',
+                cursor: 'pointer',
+                padding: '0.5rem 0',
+                opacity: 0.7,
+                transition: 'opacity 0.2s',
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.opacity = '1')}
+              onMouseLeave={(e) => (e.currentTarget.style.opacity = '0.7')}
+            >
+              {item.label}
+            </button>
+          ))}
+          <Link
+            href="/katalog"
+            style={{
+              textDecoration: 'none',
+              color: 'var(--secondary)',
+              fontWeight: 800,
+              fontSize: '0.85rem',
+              padding: '0.4rem 1rem',
+              background: 'var(--primary)',
+              borderRadius: '99px',
+              opacity: pathname === '/katalog' ? 1 : 0.8,
+              transition: 'all 0.2s',
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.05)')}
+            onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
+          >
+            {t.nav_katalog}
+          </Link>
         </div>
 
         <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center' }}>

@@ -28,12 +28,21 @@ export default function BeeFlower() {
               <motion.div 
                 key={idx} 
                 className="card" 
-                style={{ padding: '1.5rem', border: '1px solid rgba(163, 123, 77, 0.1)' }}
+                style={{ padding: '0', border: '1px solid rgba(163, 123, 77, 0.1)', overflow: 'hidden' }}
                 whileHover={{ scale: 1.02, borderColor: 'var(--primary)' }}
               >
-                <span className="tag" style={{ background: 'var(--glass-dark)', color: 'var(--secondary)' }}>{bee.tagline}</span>
-                <h4 style={{ margin: '0.5rem 0', color: 'var(--foreground)' }}>{bee.name}</h4>
-                <p style={{ fontSize: '0.85rem', opacity: 0.7 }}>{bee.description}</p>
+                <div style={{ width: '100%', height: '140px', overflow: 'hidden' }}>
+                  <img 
+                    src={bee.image} 
+                    alt={bee.name} 
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  />
+                </div>
+                <div style={{ padding: '1.25rem' }}>
+                  <span className="tag" style={{ background: 'var(--glass-dark)', color: 'var(--secondary)', fontSize: '0.7rem' }}>{bee.tagline}</span>
+                  <h4 style={{ margin: '0.5rem 0', color: 'var(--foreground)' }}>{bee.name}</h4>
+                  <p style={{ fontSize: '0.8rem', opacity: 0.7, lineHeight: '1.4' }}>{bee.description}</p>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -56,7 +65,13 @@ export default function BeeFlower() {
                 style={{ display: 'flex', gap: '1.5rem', alignItems: 'center', padding: '1.5rem', background: 'var(--white)' }}
                 whileHover={{ x: 10 }}
               >
-                <div style={{ fontSize: '2rem', background: 'var(--background)', padding: '0.75rem', borderRadius: '16px', display: 'flex', flexShrink: 0 }}>🌸</div>
+                <div style={{ width: '80px', height: '80px', borderRadius: '16px', overflow: 'hidden', flexShrink: 0, boxShadow: '0 4px 10px rgba(0,0,0,0.1)' }}>
+                  <img 
+                    src={f.image} 
+                    alt={f.name} 
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  />
+                </div>
                 <div>
                   <h4 style={{ margin: '0' }}>{f.name}</h4>
                   <p style={{ fontSize: '0.85rem', opacity: 0.7 }}>{f.traits}</p>
@@ -85,9 +100,9 @@ export default function BeeFlower() {
 
       <div className="grid grid-cols-3" style={{ gap: '2rem' }}>
         {[
-          { icon: <Layers size={32} />, title: t.rel_1_title, desc: t.rel_1_desc },
-          { icon: <RefreshCw size={32} />, title: t.rel_2_title, desc: t.rel_2_desc },
-          { icon: <Zap size={32} />, title: t.rel_3_title, desc: t.rel_3_desc }
+          { image: '/the-synergy/bunga_sama_lebah_beda.jpg', title: t.rel_1_title, desc: t.rel_1_desc },
+          { image: '/the-synergy/lebah_sama_bunga_beda.jpg', title: t.rel_2_title, desc: t.rel_2_desc },
+          { image: '/the-synergy/lebah_bunga_beda.jpg', title: t.rel_3_title, desc: t.rel_3_desc }
         ].map((item, idx) => (
           <motion.div
             key={idx}
@@ -98,17 +113,23 @@ export default function BeeFlower() {
             className="card"
             style={{ 
               textAlign: 'center', 
-              background: 'var(--glass)', 
-              border: '1px solid rgba(255,255,255,0.8)',
-              padding: '3rem 2rem'
+              background: 'var(--white)', 
+              padding: '0',
+              overflow: 'hidden'
             }}
-            whileHover={{ y: -10, background: 'var(--white)' }}
+            whileHover={{ y: -10 }}
           >
-            <div style={{ color: 'var(--primary)', marginBottom: '1.5rem', display: 'flex', justifyContent: 'center' }}>
-              {item.icon}
+            <div style={{ width: '100%', height: '200px', overflow: 'hidden' }}>
+              <img 
+                src={item.image} 
+                alt={item.title} 
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
             </div>
-            <h4 style={{ marginBottom: '1rem', color: 'var(--secondary)' }}>{item.title}</h4>
-            <p style={{ fontSize: '0.9rem', opacity: 0.8 }}>{item.desc}</p>
+            <div style={{ padding: '2rem 1.5rem' }}>
+              <h4 style={{ marginBottom: '1rem', color: 'var(--secondary)' }}>{item.title}</h4>
+              <p style={{ fontSize: '0.9rem', opacity: 0.8 }}>{item.desc}</p>
+            </div>
           </motion.div>
         ))}
       </div>

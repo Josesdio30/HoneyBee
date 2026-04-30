@@ -39,7 +39,13 @@ export default function HoneyTypes() {
             onClick={() => setSelectedId(honey.id)}
             whileHover={{ scale: 1.05 }}
           >
-            <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>🍯</div>
+            <div style={{ width: '100%', aspectRatio: '1/1', borderRadius: '16px', overflow: 'hidden', marginBottom: '1.5rem', boxShadow: '0 4px 15px rgba(0,0,0,0.05)' }}>
+              <img 
+                src={honey.image} 
+                alt={honey.name} 
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
+            </div>
             <h3>{honey.name}</h3>
             <p style={{ fontSize: '0.9rem', marginTop: '0.5rem', opacity: 0.8 }}>
               {honey.traits[0]}...
@@ -91,6 +97,13 @@ export default function HoneyTypes() {
 
               <div style={{ padding: '2.5rem' }}>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2.5rem' }}>
+                  <div style={{ borderRadius: '24px', overflow: 'hidden', boxShadow: '0 20px 40px rgba(0,0,0,0.1)' }}>
+                    <img 
+                      src={selectedHoney.image} 
+                      alt={selectedHoney.name} 
+                      style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                    />
+                  </div>
                   <div>
                     <h2 style={{ marginBottom: '1rem', color: 'var(--secondary)', fontSize: '2.5rem' }}>{selectedHoney.name}</h2>
                     <p style={{ marginBottom: '1.5rem', fontSize: '1.1rem' }}>{selectedHoney.description}</p>

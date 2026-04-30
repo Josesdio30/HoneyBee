@@ -54,31 +54,39 @@ export default function Debunking() {
                   WebkitBackfaceVisibility: 'hidden',
                   background: 'var(--white)',
                   borderRadius: '32px',
-                  padding: '2rem',
+                  overflow: 'hidden',
                   display: 'flex',
                   flexDirection: 'column',
-                  justifyContent: 'center',
                   boxShadow: '0 15px 35px rgba(163, 123, 77, 0.1)',
                   border: '1px solid rgba(163, 123, 77, 0.05)'
                 }}>
-                  <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', marginBottom: '1.25rem' }}>
-                    <div style={{ background: 'var(--background)', color: 'var(--secondary)', padding: '0.75rem', borderRadius: '15px' }}>
-                      <HelpCircle size={24} />
-                    </div>
-                    <div>
-                      <h4 style={{ margin: 0, opacity: 0.5, fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '1px' }}>
-                        {language === 'id' ? 'Konon Katanya...' : 'The Myth...'}
-                      </h4>
-                      <h3 style={{ margin: 0, fontSize: '1.5rem' }}>{myth.title}</h3>
-                    </div>
+                  <div style={{ width: '100%', height: '160px', overflow: 'hidden' }}>
+                    <img 
+                      src={myth.image} 
+                      alt={myth.title} 
+                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    />
                   </div>
-                  <p style={{ fontStyle: 'italic', opacity: 0.8, fontSize: '1rem', lineHeight: '1.5' }}>
-                    “{myth.description}”
-                  </p>
-                  <div style={{ marginTop: 'auto', textAlign: 'center', opacity: 0.4, fontSize: '0.8rem', fontWeight: 700 }}>
-                    <motion.span animate={{ opacity: [0.4, 1, 0.4] }} transition={{ repeat: Infinity, duration: 2 }}>
-                      {language === 'id' ? 'Klik/Tap untuk fakta' : 'Tap for fact'}
-                    </motion.span>
+                  <div style={{ padding: '1.5rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
+                    <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', marginBottom: '1rem' }}>
+                      <div style={{ background: 'var(--background)', color: 'var(--secondary)', padding: '0.5rem', borderRadius: '12px' }}>
+                        <HelpCircle size={20} />
+                      </div>
+                      <div>
+                        <h4 style={{ margin: 0, opacity: 0.5, fontSize: '0.65rem', textTransform: 'uppercase', letterSpacing: '1px' }}>
+                          {language === 'id' ? 'Konon Katanya...' : 'The Myth...'}
+                        </h4>
+                        <h3 style={{ margin: 0, fontSize: '1.25rem' }}>{myth.title}</h3>
+                      </div>
+                    </div>
+                    <p style={{ fontStyle: 'italic', opacity: 0.8, fontSize: '0.9rem', lineHeight: '1.5' }}>
+                      “{myth.description}”
+                    </p>
+                    <div style={{ marginTop: 'auto', textAlign: 'center', opacity: 0.4, fontSize: '0.75rem', fontWeight: 700 }}>
+                      <motion.span animate={{ opacity: [0.4, 1, 0.4] }} transition={{ repeat: Infinity, duration: 2 }}>
+                        {language === 'id' ? 'Klik/Tap untuk fakta' : 'Tap for fact'}
+                      </motion.span>
+                    </div>
                   </div>
                 </div>
 

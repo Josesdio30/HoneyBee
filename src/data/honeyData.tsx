@@ -45,6 +45,20 @@ export interface Translation {
   quiz_retry: string;
   footer_desc: string;
   footer_copy: string;
+  contact_title: string;
+  phone_label: string;
+  address_label: string;
+  ecommerce_title: string;
+  nav_home: string;
+  nav_types: string;
+  nav_edu: string;
+  nav_myth: string;
+  nav_quiz: string;
+  nav_video: string;
+  ecommerce_brand: string;
+  nav_katalog: string;
+  catalog_title: string;
+  catalog_desc: string;
 }
 
 export const translations: Record<Language, Translation> = {
@@ -90,7 +104,21 @@ export const translations: Record<Language, Translation> = {
     quiz_score: "Skor kamu:",
     quiz_retry: "Coba Lagi",
     footer_desc: "Mari lestarikan madu asli Indonesia dengan membeli produk dari sumber yang terpercaya dan mendukung peternak lokal.",
-    footer_copy: "© 2026 HoneyVerse Indonesia. Dibuat dengan ❤️ untuk pecinta madu Nusantara."
+    footer_copy: "© 2026 HoneyVerse Indonesia. Dibuat dengan ❤️ untuk pecinta madu Nusantara.",
+    contact_title: "Hubungi Kami",
+    phone_label: "No. Telp",
+    address_label: "Alamat",
+    ecommerce_title: "Toko Online Kami",
+    nav_home: "Beranda",
+    nav_types: "Jenis Madu",
+    nav_edu: "Edukasi",
+    nav_myth: "Mitos",
+    nav_quiz: "Quiz",
+    nav_video: "Keaslian",
+    ecommerce_brand: "MADU RIMBA RAYA",
+    nav_katalog: "Katalog",
+    catalog_title: "Katalog Produk Kami",
+    catalog_desc: "Temukan berbagai pilihan madu murni berkualitas tinggi dari MADU RIMBA RAYA."
   },
   en: {
     brand: "HoneyVerse Indonesia",
@@ -134,7 +162,21 @@ export const translations: Record<Language, Translation> = {
     quiz_score: "Your score:",
     quiz_retry: "Try Again",
     footer_desc: "Protect Indonesian honey by purchasing from trusted sources and supporting local beekeepers.",
-    footer_copy: "© 2026 HoneyVerse Indonesia. Made with ❤️ for Nusantara honey lovers."
+    footer_copy: "© 2026 HoneyVerse Indonesia. Made with ❤️ for Nusantara honey lovers.",
+    contact_title: "Contact Us",
+    phone_label: "Phone",
+    address_label: "Address",
+    ecommerce_title: "Our Online Store",
+    nav_home: "Home",
+    nav_types: "Honey Types",
+    nav_edu: "Education",
+    nav_myth: "Myths",
+    nav_quiz: "Quiz",
+    nav_video: "Authenticity",
+    ecommerce_brand: "MADU RIMBA RAYA",
+    nav_katalog: "Catalog",
+    catalog_title: "Our Product Catalog",
+    catalog_desc: "Discover our selection of high-quality pure honey from MADU RIMBA RAYA."
   }
 };
 
@@ -146,6 +188,7 @@ export interface HoneyType {
   benefits: string[];
   origin: string;
   uniqueness: string;
+  image: string;
 }
 
 export const honeyTypes: Record<Language, HoneyType[]> = {
@@ -157,7 +200,8 @@ export const honeyTypes: Record<Language, HoneyType[]> = {
       traits: ['Rasa manis', 'Aroma khas bunga', 'Warna cenderung gelap'],
       benefits: ['Lancar pencernaan', 'Atasi tekanan darah', 'Daya tahan tubuh', 'Antioksidan tinggi'],
       origin: 'Daerah pegunungan Jawa Tengah & Jawa Timur.',
-      uniqueness: 'Berbunga sepanjang tahun, nektar melimpah.'
+      uniqueness: 'Berbunga sepanjang tahun, nektar melimpah.',
+      image: '/madu/KALIANDRA.JPG'
     },
     {
       id: 'randu',
@@ -166,7 +210,8 @@ export const honeyTypes: Record<Language, HoneyType[]> = {
       traits: ['Rasa manis sedikit asam', 'Warna cokelat terang'],
       benefits: ['Nafsu makan', 'Penyembuhan tubuh', 'Sistem imun', 'Antioksidan'],
       origin: 'Perkebunan randu di Jawa Timur & Jawa Tengah.',
-      uniqueness: 'Rasa khas manis sedikit asam, warna terang.'
+      uniqueness: 'Rasa khas manis sedikit asam, warna terang.',
+      image: '/madu/RANDU.JPG'
     },
     {
       id: 'kelengkeng',
@@ -175,7 +220,8 @@ export const honeyTypes: Record<Language, HoneyType[]> = {
       traits: ['Rasa manis gurih', 'Aroma harum'],
       benefits: ['Stamina & energi', 'Regenerasi sel', 'Daya tahan tubuh'],
       origin: 'Indonesia, Thailand, dan Vietnam.',
-      uniqueness: 'Aroma sangat harum, menarik banyak lebah.'
+      uniqueness: 'Aroma sangat harum, menarik banyak lebah.',
+      image: '/madu/KELENGKENG.JPG'
     },
     {
       id: 'akasia',
@@ -184,7 +230,8 @@ export const honeyTypes: Record<Language, HoneyType[]> = {
       traits: ['Transparan/cerah', 'Manis ringan (vanila)', 'Tahan lama'],
       benefits: ['Pencernaan', 'Sembuhkan luka', 'Antibakteri alami', 'Kontrol gula darah'],
       origin: 'Hutan akasia Sumatera dan Kalimantan.',
-      uniqueness: 'Sangat jernih, tidak cepat mengkristal.'
+      uniqueness: 'Sangat jernih, tidak cepat mengkristal.',
+      image: '/madu/AKASIA.JPG'
     }
   ],
   en: [
@@ -195,7 +242,8 @@ export const honeyTypes: Record<Language, HoneyType[]> = {
       traits: ['Sweet taste', 'Floral aroma', 'Darker color'],
       benefits: ['Digestion aid', 'Blood pressure', 'Immune system', 'High antioxidants'],
       origin: 'Mountains of Central & East Java.',
-      uniqueness: 'Blooms all year round, abundant nectar.'
+      uniqueness: 'Blooms all year round, abundant nectar.',
+      image: '/madu/KALIANDRA.JPG'
     },
     {
       id: 'randu',
@@ -204,7 +252,8 @@ export const honeyTypes: Record<Language, HoneyType[]> = {
       traits: ['Sweet and sour', 'Light brown color'],
       benefits: ['Appetite boost', 'Body healing', 'Immune system', 'Antioxidants'],
       origin: 'Randu plantations in East & Central Java.',
-      uniqueness: 'Distinct sweet-sour taste, light color.'
+      uniqueness: 'Distinct sweet-sour taste, light color.',
+      image: '/madu/RANDU.JPG'
     },
     {
       id: 'kelengkeng',
@@ -213,7 +262,8 @@ export const honeyTypes: Record<Language, HoneyType[]> = {
       traits: ['Savory sweet', 'Fragrant aroma'],
       benefits: ['Stamina & energy', 'Cell regeneration', 'Immune system'],
       origin: 'Indonesia, Thailand, and Vietnam.',
-      uniqueness: 'Highly fragrant, attracts many bees.'
+      uniqueness: 'Highly fragrant, attracts many bees.',
+      image: '/madu/KELENGKENG.JPG'
     },
     {
       id: 'akasia',
@@ -222,7 +272,8 @@ export const honeyTypes: Record<Language, HoneyType[]> = {
       traits: ['Transparent/bright', 'Mild sweet (vanilla)', 'Long shelf life'],
       benefits: ['Digestion', 'Wound healing', 'Natural antibacterial', 'Blood sugar control'],
       origin: 'Acacia forests of Sumatra and Kalimantan.',
-      uniqueness: 'Highly clear, does not crystallize easily.'
+      uniqueness: 'Highly clear, does not crystallize easily.',
+      image: '/madu/AKASIA.JPG'
     }
   ]
 };
@@ -231,20 +282,21 @@ export interface BeeType {
   name: string;
   tagline: string;
   description: string;
+  image: string;
 }
 
 export const bees: Record<Language, BeeType[]> = {
   id: [
-    { name: 'Apis cerana', tagline: 'Lebah Lokal', description: 'Banyak ditemukan di Indonesia. Produksi sedang.' },
-    { name: 'Apis mellifera', tagline: 'Lebah Unggul', description: 'Produksi tinggi. Banyak dibudidayakan.' },
-    { name: 'Apis dorsata', tagline: 'Lebah Hutan', description: 'Hidup liar di hutan. Produksi besar.' },
-    { name: 'Trigona sp.', tagline: 'Lebah Kecil', description: 'Tidak menyengat. Madu sedikit & asam.' }
+    { name: 'Apis cerana', tagline: 'Lebah Lokal', description: 'Banyak ditemukan di Indonesia. Produksi sedang.', image: '/lebah/APIS_CERANA.WEBP' },
+    { name: 'Apis mellifera', tagline: 'Lebah Unggul', description: 'Produksi tinggi. Banyak dibudidayakan.', image: '/lebah/APIS_MELLIFERA.WEBP' },
+    { name: 'Apis dorsata', tagline: 'Lebah Hutan', description: 'Hidup liar di hutan. Produksi besar.', image: '/lebah/APIS_DORSATA.WEBP' },
+    { name: 'Trigona sp.', tagline: 'Lebah Kecil', description: 'Tidak menyengat. Madu sedikit & asam.', image: '/lebah/TRIGONA.JPG' }
   ],
   en: [
-    { name: 'Apis cerana', tagline: 'Local Bee', description: 'Commonly found in Indonesia. Medium production.' },
-    { name: 'Apis mellifera', tagline: 'Superior Bee', description: 'High production. Widely cultivated.' },
-    { name: 'Apis dorsata', tagline: 'Forest Bee', description: 'Lives wild in forests. High production.' },
-    { name: 'Trigona sp.', tagline: 'Small Bee', description: 'Stingless. Low production & sour taste.' }
+    { name: 'Apis cerana', tagline: 'Local Bee', description: 'Commonly found in Indonesia. Medium production.', image: '/lebah/APIS_CERANA.WEBP' },
+    { name: 'Apis mellifera', tagline: 'Superior Bee', description: 'High production. Widely cultivated.', image: '/lebah/APIS_MELLIFERA.WEBP' },
+    { name: 'Apis dorsata', tagline: 'Forest Bee', description: 'Lives wild in forests. High production.', image: '/lebah/APIS_DORSATA.WEBP' },
+    { name: 'Trigona sp.', tagline: 'Small Bee', description: 'Stingless. Low production & sour taste.', image: '/lebah/TRIGONA.JPG' }
   ]
 };
 
@@ -252,20 +304,21 @@ export interface FlowerType {
   name: string;
   traits: string;
   bees: string[];
+  image: string;
 }
 
 export const flowers: Record<Language, FlowerType[]> = {
   id: [
-    { name: 'Bunga Randu', traits: 'Putih kekuningan, nektar melimpah.', bees: ['Apis cerana', 'Apis mellifera'] },
-    { name: 'Bunga Kelengkeng', traits: 'Kecil bergerombol, aroma harum.', bees: ['Apis mellifera', 'Apis cerana'] },
-    { name: 'Bunga Kaliandra', traits: 'Merah/putih, bentuk sikat botol.', bees: ['Apis mellifera', 'Apis cerana'] },
-    { name: 'Bunga Akasia', traits: 'Kecil bergerombol, mudah dijangkau.', bees: ['Apis mellifera'] }
+    { name: 'Bunga Randu', traits: 'Putih kekuningan, nektar melimpah.', bees: ['Apis cerana', 'Apis mellifera'], image: '/bunga/bunga_randu.JPG' },
+    { name: 'Bunga Kelengkeng', traits: 'Kecil bergerombol, aroma harum.', bees: ['Apis mellifera', 'Apis cerana'], image: '/bunga/bunga_kelengkeng.JPG' },
+    { name: 'Bunga Kaliandra', traits: 'Merah/putih, bentuk sikat botol.', bees: ['Apis mellifera', 'Apis cerana'], image: '/bunga/bunga_kaliandra.JPG' },
+    { name: 'Bunga Akasia', traits: 'Kecil bergerombol, mudah dijangkau.', bees: ['Apis mellifera'], image: '/bunga/bunga_akasia.WEBP' }
   ],
   en: [
-    { name: 'Randu Flower', traits: 'Yellowish white, abundant nectar.', bees: ['Apis cerana', 'Apis mellifera'] },
-    { name: 'Longan Flower', traits: 'Small clusters, fragrant aroma.', bees: ['Apis mellifera', 'Apis cerana'] },
-    { name: 'Kaliandra Flower', traits: 'Red/white, bottle brush shape.', bees: ['Apis mellifera', 'Apis cerana'] },
-    { name: 'Acacia Flower', traits: 'Small clusters, easy to reach.', bees: ['Apis mellifera'] }
+    { name: 'Randu Flower', traits: 'Yellowish white, abundant nectar.', bees: ['Apis cerana', 'Apis mellifera'], image: '/bunga/bunga_randu.JPG' },
+    { name: 'Longan Flower', traits: 'Small clusters, fragrant aroma.', bees: ['Apis mellifera', 'Apis cerana'], image: '/bunga/bunga_kelengkeng.JPG' },
+    { name: 'Kaliandra Flower', traits: 'Red/white, bottle brush shape.', bees: ['Apis mellifera', 'Apis cerana'], image: '/bunga/bunga_kaliandra.JPG' },
+    { name: 'Acacia Flower', traits: 'Small clusters, easy to reach.', bees: ['Apis mellifera'], image: '/bunga/bunga_akasia.WEBP' }
   ]
 };
 
@@ -274,6 +327,7 @@ export interface MythType {
   description: string;
   fact: string;
   conclusion: string;
+  image: string;
 }
 
 export const myths: Record<Language, MythType[]> = {
@@ -282,25 +336,29 @@ export const myths: Record<Language, MythType[]> = {
       title: 'Uji Tisu',
       description: 'Madu diteteskan ke tisu. Jika tidak meresap, dianggap asli.',
       fact: 'Kekentalan tidak hanya dimiliki oleh madu. Sirup gula juga kental.',
-      conclusion: 'Uji ini menunjukkan kekentalan, bukan keaslian.'
+      conclusion: 'Uji ini menunjukkan kekentalan, bukan keaslian.',
+      image: '/uji/UJI_TISU.PNG'
     },
     {
       title: 'Uji Semut',
       description: 'Percaya bahwa madu asli tidak didatangi semut.',
       fact: 'Semut tertarik pada semua cairan manis, termasuk madu asli.',
-      conclusion: 'Semut bukan indikator keaslian madu.'
+      conclusion: 'Semut bukan indikator keaslian madu.',
+      image: '/uji/UJI_SEMUT.JPG'
     },
     {
       title: 'Uji Korek Api',
       description: 'Oleskan ke korek, jika menyala dianggap asli.',
       fact: 'Cairan kental (termasuk gula) tetap membuat korek menyala.',
-      conclusion: 'Hanya menunjukkan rendahnya kadar air.'
+      conclusion: 'Hanya menunjukkan rendahnya kadar air.',
+      image: '/uji/UJI_KOREK_API.PNG'
     },
     {
       title: 'Kristalisasi',
       description: 'Madu yang mengkristal dianggap mengandung gula pasir.',
       fact: 'Kristalisasi adalah proses alami tergantung nektar bunga.',
-      conclusion: 'Bukan tanda madu palsu.'
+      conclusion: 'Bukan tanda madu palsu.',
+      image: '/uji/UJI_KRISTALISASI.JPG'
     }
   ],
   en: [
@@ -308,25 +366,29 @@ export const myths: Record<Language, MythType[]> = {
       title: 'Tissue Test',
       description: 'Honey dropped on tissue. If it doesn\'t soak through, it\'s real.',
       fact: 'Viscosity is not exclusive to honey. Sugar syrup is also thick.',
-      conclusion: 'Indicates viscosity, not authenticity.'
+      conclusion: 'Indicates viscosity, not authenticity.',
+      image: '/uji/UJI_TISU.PNG'
     },
     {
       title: 'Ant Test',
       description: 'Believing that real honey won\'t attract ants.',
       fact: 'Ants are attracted to all sweet liquids, including pure honey.',
-      conclusion: 'Ants are not an indicator of authenticity.'
+      conclusion: 'Ants are not an indicator of authenticity.',
+      image: '/uji/UJI_SEMUT.JPG'
     },
     {
       title: 'Matchstick Test',
       description: 'Coating matchsticks with honey; if they light up, it\'s real.',
       fact: 'Thick liquids (including sugar) still allow matchsticks to ignite.',
-      conclusion: 'Only indicates low moisture content.'
+      conclusion: 'Only indicates low moisture content.',
+      image: '/uji/UJI_KOREK_API.PNG'
     },
     {
       title: 'Crystallization',
       description: 'Crystallized honey is thought to contain added sugar.',
       fact: 'Crystallization is a natural process depending on nectar type.',
-      conclusion: 'Not a sign of fake honey.'
+      conclusion: 'Not a sign of fake honey.',
+      image: '/uji/UJI_KRISTALISASI.JPG'
     }
   ]
 };

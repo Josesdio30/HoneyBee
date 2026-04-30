@@ -7,6 +7,8 @@ export const metadata: Metadata = {
   description: "Eksplorasi ragam madu asli Indonesia, lebah penghasilnya, dan fakta mengagumkan di balik setiap tetesan manisnya.",
 };
 
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -17,6 +19,7 @@ export default function RootLayout({
       <body>
         <LanguageProvider>
           {children}
+          <FloatingWhatsApp />
         </LanguageProvider>
       </body>
     </html>
