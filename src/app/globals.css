@@ -210,8 +210,11 @@ h1, h2, h3 {
 
 /* Responsive Navigation */
 @media (max-width: 900px) {
-  .nav-links {
+  .nav-links, .desktop-only {
     display: none !important;
+  }
+  .mobile-only {
+    display: block !important;
   }
 }
 
