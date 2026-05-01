@@ -82,9 +82,23 @@ export default function Footer() {
                 </div>
                 <div>
                   <div style={{ fontSize: '0.8rem', opacity: 0.6, marginBottom: '0.2rem' }}>{t.address_label}</div>
-                  <div style={{ fontSize: '0.9rem', lineHeight: '1.4' }}>
-                    JI. DR. Wahidin No.8 (120, Polaman, Bedali, Kec. Lawang, Kabupaten Malang, Jawa Timur 65215
-                  </div>
+                  <a 
+                    href="https://share.google/O9i6p7FEXK6UfHvSG" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    style={{ 
+                      color: 'white', 
+                      textDecoration: 'none', 
+                      fontSize: '0.9rem', 
+                      lineHeight: '1.4',
+                      display: 'block',
+                      transition: 'opacity 0.2s ease'
+                    }}
+                    onMouseOver={(e) => e.currentTarget.style.opacity = '0.7'}
+                    onMouseOut={(e) => e.currentTarget.style.opacity = '1'}
+                  >
+                    Jl. DR. Wahidin No.8, Polaman, Bedali, Kec. Lawang, Kabupaten Malang, Jawa Timur 65215
+                  </a>
                 </div>
               </div>
             </div>
@@ -94,10 +108,16 @@ export default function Footer() {
           <div>
             <h3 style={{ marginBottom: '1.5rem', fontSize: '1.1rem' }}>{t.ecommerce_title}</h3>
             <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-              {['Tokopedia', 'Shopee', 'WhatsApp'].map((shop) => (
+              {[
+                { name: 'Tokopedia', url: 'https://tk.tokopedia.com/ZS95rbkRC/' },
+                { name: 'Shopee', url: 'https://s.shopee.co.id/8KlzwqqrfZ' },
+                { name: 'WhatsApp', url: 'https://wa.me/6281226677599' }
+              ].map((shop) => (
                 <a 
-                  key={shop}
-                  href="#" 
+                  key={shop.name}
+                  href={shop.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   style={{ 
                     background: 'white', 
                     color: 'var(--secondary)', 
@@ -108,10 +128,19 @@ export default function Footer() {
                     textDecoration: 'none',
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '0.5rem'
+                    gap: '0.5rem',
+                    transition: 'transform 0.2s ease, box-shadow 0.2s ease'
+                  }}
+                  onMouseOver={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-2px)';
+                    e.currentTarget.style.boxShadow = '0 4px 12px rgba(0,0,0,0.1)';
+                  }}
+                  onMouseOut={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.boxShadow = 'none';
                   }}
                 >
-                  {shop}
+                  {shop.name}
                 </a>
               ))}
             </div>

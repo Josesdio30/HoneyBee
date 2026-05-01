@@ -59,6 +59,7 @@ export interface Translation {
   nav_katalog: string;
   catalog_title: string;
   catalog_desc: string;
+  buy_now: string;
 }
 
 export const translations: Record<Language, Translation> = {
@@ -118,7 +119,8 @@ export const translations: Record<Language, Translation> = {
     ecommerce_brand: "MADU RIMBA RAYA",
     nav_katalog: "Katalog",
     catalog_title: "Katalog Produk Kami",
-    catalog_desc: "Temukan berbagai pilihan madu murni berkualitas tinggi dari MADU RIMBA RAYA."
+    catalog_desc: "Temukan berbagai pilihan madu murni berkualitas tinggi dari MADU RIMBA RAYA.",
+    buy_now: "Beli Sekarang"
   },
   en: {
     brand: "HoneyVerse Indonesia",
@@ -176,7 +178,8 @@ export const translations: Record<Language, Translation> = {
     ecommerce_brand: "MADU RIMBA RAYA",
     nav_katalog: "Catalog",
     catalog_title: "Our Product Catalog",
-    catalog_desc: "Discover our selection of high-quality pure honey from MADU RIMBA RAYA."
+    catalog_desc: "Discover our selection of high-quality pure honey from MADU RIMBA RAYA.",
+    buy_now: "Buy Now"
   }
 };
 
@@ -419,4 +422,22 @@ export const quizQuestions: Record<Language, QuizQuestion[]> = {
 export const feedbacks: Record<Language, string[]> = {
   id: ["Masih percaya mitos 😄", "Sudah mulai paham!", "Kamu sudah paham tentang madu!"],
   en: ["Still believing in myths 😄", "Getting the hang of it!", "You're a honey expert!"]
+};
+
+export interface CatalogProduct {
+  name: string;
+  image: string;
+  price: string;
+  link: string;
+}
+
+export const catalogProducts: Record<Language, CatalogProduct[]> = {
+  id: [
+    { name: 'Madu Randu', image: '/katalog/MADU_RANDU.png', price: 'Rp 130.000', link: 'https://s.shopee.co.id/40d0ncJ9mR' },
+    { name: 'Madu Kelengkeng', image: '/katalog/MADU_KELENGKENG.png', price: 'Rp 130.000', link: 'https://s.shopee.co.id/9UxxLrjJD9' },
+  ],
+  en: [
+    { name: 'Randu Honey', image: '/katalog/MADU_RANDU.png', price: 'Rp 130,000', link: 'https://s.shopee.co.id/40d0ncJ9mR' },
+    { name: 'Longan Honey', image: '/katalog/MADU_KELENGKENG.png', price: 'Rp 130,000', link: 'https://s.shopee.co.id/9UxxLrjJD9' },
+  ]
 };

@@ -3,6 +3,7 @@
 import NavBar from '@/components/NavBar';
 import Hero from '@/components/Hero';
 import HoneyTypes from '@/components/HoneyTypes';
+import ProductCatalog from '@/components/ProductCatalog';
 import BeeFlower from '@/components/BeeFlower';
 import VideoSection from '@/components/VideoSection';
 import Debunking from '@/components/Debunking';
@@ -27,6 +28,11 @@ export default function Home() {
       {/* Halaman 2 — Jenis Madu */}
       <section id="explore" className="section" style={{ background: 'var(--white)' }}>
         <HoneyTypes />
+      </section>
+
+      {/* Katalog Produk — Khusus Mobile (atau scroll target) */}
+      <section id="katalog-section" className="mobile-only section" style={{ background: 'var(--background)' }}>
+        <ProductCatalog />
       </section>
 
       {/* Halaman 3 & 4 — Lebah & Bunga & Hubungan */}

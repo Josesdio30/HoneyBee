@@ -2,10 +2,10 @@
 
 import { useLanguage } from '../LanguageContext';
 import { translations } from '../data/honeyData';
-import { AnimatePresence, motion } from 'framer-motion';
-import { Globe, Menu, X } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Globe } from 'lucide-react';
 import { usePathname, useRouter } from 'next/navigation';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import Link from 'next/link';
 
 export default function NavBar() {
@@ -14,10 +14,7 @@ export default function NavBar() {
   const pathname = usePathname();
   const router = useRouter();
 
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
   const handleNavClick = (id: string) => {
-    setIsMobileMenuOpen(false);
     if (pathname !== '/') {
       router.push(`/#${id}`);
     } else {
@@ -28,14 +25,12 @@ export default function NavBar() {
     }
   };
 
-  // Close menu when resizing to desktop
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth > 900) setIsMobileMenuOpen(false);
-    };
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  const handleKatalogClick = (e: React.MouseEvent) => {
+    if (window.innerWidth <= 900 && pathname === '/') {
+      e.preventDefault();
+      handleNavClick('katalog-section');
+    }
+  };
 
   return (
     <motion.nav
@@ -88,14 +83,18 @@ export default function NavBar() {
               {item.label}
             </button>
           ))}
+        </div>
+
+        <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center' }}>
           <Link
             href="/katalog"
+            onClick={handleKatalogClick}
             style={{
               textDecoration: 'none',
               color: 'var(--secondary)',
               fontWeight: 800,
-              fontSize: '0.85rem',
-              padding: '0.4rem 1rem',
+              fontSize: '0.75rem',
+              padding: '0.4rem 0.8rem',
               background: 'var(--primary)',
               borderRadius: '99px',
               opacity: pathname === '/katalog' ? 1 : 0.8,
@@ -106,38 +105,20 @@ export default function NavBar() {
           >
             {t.nav_katalog}
           </Link>
-        </div>
-
-        <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center' }}>
-          {/* Mobile Menu Toggle */}
-          <button
-            className="mobile-only"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            style={{
-              background: 'none',
-              border: 'none',
-              color: 'var(--secondary)',
-              cursor: 'pointer',
-              display: 'none', // Managed by CSS
-              padding: '0.5rem'
-            }}
-          >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
 
           <div style={{ display: 'flex', background: 'var(--glass-dark)', padding: '0.2rem', borderRadius: '99px', border: '1px solid rgba(0,0,0,0.05)' }}>
             <button
               onClick={() => setLanguage('id')}
               style={{
                 borderRadius: '99px',
-                padding: '0.4rem 0.8rem',
+                padding: '0.4rem 0.6rem',
                 border: 'none',
                 background: language === 'id' ? 'var(--primary)' : 'transparent',
                 color: 'var(--foreground)',
                 fontWeight: 700,
                 cursor: 'pointer',
                 transition: 'all 0.2s',
-                fontSize: '0.75rem'
+                fontSize: '0.7rem'
               }}
             >
               ID
@@ -146,14 +127,14 @@ export default function NavBar() {
               onClick={() => setLanguage('en')}
               style={{
                 borderRadius: '99px',
-                padding: '0.4rem 0.8rem',
+                padding: '0.4rem 0.6rem',
                 border: 'none',
                 background: language === 'en' ? 'var(--primary)' : 'transparent',
                 color: 'var(--foreground)',
                 fontWeight: 700,
                 cursor: 'pointer',
                 transition: 'all 0.2s',
-                fontSize: '0.75rem'
+                fontSize: '0.7rem'
               }}
             >
               EN
@@ -163,70 +144,6 @@ export default function NavBar() {
           <Globe size={16} color="var(--tertiary)" className="desktop-only" />
         </div>
       </div>
-
-      {/* Mobile Menu Overlay */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            style={{
-              background: 'var(--background)',
-              width: '100%',
-              overflow: 'hidden',
-              borderBottom: '1px solid rgba(163, 123, 77, 0.1)',
-              display: 'flex',
-              flexDirection: 'column',
-              padding: '1rem 0'
-            }}
-          >
-            {[
-              { id: 'hero', label: t.nav_home },
-              { id: 'explore', label: t.nav_types },
-              { id: 'bees-flowers', label: t.nav_edu },
-              { id: 'authenticity-video', label: t.nav_video },
-              { id: 'debunking', label: t.nav_myth },
-              { id: 'quiz', label: t.nav_quiz },
-            ].map((item) => (
-              <button
-                key={item.id}
-                onClick={() => handleNavClick(item.id)}
-                style={{
-                  background: 'none',
-                  border: 'none',
-                  color: 'var(--secondary)',
-                  fontWeight: 600,
-                  fontSize: '1rem',
-                  padding: '1rem 2rem',
-                  textAlign: 'left',
-                  width: '100%',
-                  borderBottom: '1px solid rgba(163, 123, 77, 0.05)'
-                }}
-              >
-                {item.label}
-              </button>
-            ))}
-            <Link
-              href="/katalog"
-              onClick={() => setIsMobileMenuOpen(false)}
-              style={{
-                textDecoration: 'none',
-                color: 'var(--secondary)',
-                fontWeight: 800,
-                fontSize: '1rem',
-                padding: '1rem 2rem',
-                background: 'var(--primary)',
-                margin: '1rem 2rem',
-                borderRadius: '12px',
-                textAlign: 'center'
-              }}
-            >
-              {t.nav_katalog}
-            </Link>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </motion.nav>
   );
 }
