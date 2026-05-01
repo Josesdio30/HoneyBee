@@ -30,11 +30,6 @@ export default function Home() {
         <HoneyTypes />
       </section>
 
-      {/* Katalog Produk — Khusus Mobile (atau scroll target) */}
-      <section id="katalog-section" className="mobile-only section" style={{ background: 'var(--background)' }}>
-        <ProductCatalog />
-      </section>
-
       {/* Halaman 3 & 4 — Lebah & Bunga & Hubungan */}
       <section id="bees-flowers" className="section">
         <BeeFlower />
@@ -55,6 +50,11 @@ export default function Home() {
           <h2 style={{ marginBottom: '3rem' }}>{t.quiz_title}</h2>
           <Quiz />
         </div>
+      </section>
+
+      {/* Katalog Produk — Khusus Mobile (atau scroll target) */}
+      <section id="katalog-section" className="mobile-only section" style={{ background: 'var(--background)' }}>
+        <ProductCatalog />
       </section>
 
       {/* Footer / Penutup */}
