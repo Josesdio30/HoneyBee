@@ -23,30 +23,59 @@ export default function Footer() {
           <div>
             <h3 style={{ marginBottom: '1rem', fontSize: '1.1rem' }}>{t.ecommerce_brand}</h3>
             <div style={{ fontSize: '0.8rem', opacity: 0.6, marginBottom: '1.5rem' }}>{t.contact_title}</div>
+            
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-              <div style={{ marginBottom: '0.5rem' }}>
-                <p style={{ fontSize: '0.9rem', fontWeight: 700, color: 'var(--primary)', marginBottom: '1rem' }}>
-                  {language === 'id' ? 'Ingin tahu lebih lanjut? Daftar sesi edukasi madu sekarang' : 'Want to know more? Register for a honey education session now'}
-                </p>
-                <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start', marginBottom: '1rem' }}>
-                  <div style={{ background: 'rgba(255,255,255,0.1)', padding: '0.5rem', borderRadius: '8px', display: 'flex' }}>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                  </div>
-                  <div>
-                    <div style={{ fontSize: '0.8rem', opacity: 0.6, marginBottom: '0.2rem' }}>{t.phone_label}</div>
-                    <a href="tel:+6281226677599" style={{ color: 'white', textDecoration: 'none', fontWeight: 600 }}>+62 812‑2667‑7599</a>
-                  </div>
+              {/* CTA Card */}
+              <div style={{ 
+                background: 'rgba(255, 255, 255, 0.1)', 
+                padding: '1.25rem', 
+                borderRadius: '16px', 
+                border: '1px solid rgba(255, 255, 255, 0.2)',
+                marginBottom: '0.5rem',
+                position: 'relative',
+                overflow: 'hidden'
+              }}>
+                <div style={{ 
+                  position: 'absolute', 
+                  top: '-10px', 
+                  right: '-10px', 
+                  opacity: 0.1, 
+                  transform: 'rotate(-15deg)' 
+                }}>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
                 </div>
-                <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
-                  <div style={{ background: 'rgba(255,255,255,0.1)', padding: '0.5rem', borderRadius: '8px', display: 'flex' }}>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                  </div>
-                  <div>
-                    <div style={{ fontSize: '0.8rem', opacity: 0.6, marginBottom: '0.2rem' }}>Instagram</div>
-                    <a href="https://www.instagram.com/petikmadu.id?igsh=ZGJhaG82NHV6ZnZi" target="_blank" rel="noopener noreferrer" style={{ color: 'white', textDecoration: 'none', fontWeight: 600 }}>petikmadu.id</a>
-                  </div>
+                <p style={{ fontSize: '0.95rem', fontWeight: 600, color: 'var(--primary)', lineHeight: '1.4', margin: 0 }}>
+                  {language === 'id' ? 'Ingin tahu lebih lanjut?' : 'Want to know more?'}
+                  <br />
+                  <span style={{ color: 'white', fontSize: '0.85rem', fontWeight: 400, opacity: 0.9 }}>
+                    {language === 'id' ? 'Daftar sesi edukasi madu sekarang' : 'Register for a honey education session now'}
+                  </span>
+                </p>
+              </div>
+
+              {/* Phone */}
+              <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
+                <div style={{ background: 'rgba(255,255,255,0.1)', padding: '0.5rem', borderRadius: '8px', display: 'flex' }}>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </div>
+                <div>
+                  <div style={{ fontSize: '0.8rem', opacity: 0.6, marginBottom: '0.2rem' }}>{t.phone_label}</div>
+                  <a href="tel:+6281226677599" style={{ color: 'white', textDecoration: 'none', fontWeight: 600 }}>+62 812‑2667‑7599</a>
                 </div>
               </div>
+
+              {/* Instagram */}
+              <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
+                <div style={{ background: 'rgba(255,255,255,0.1)', padding: '0.5rem', borderRadius: '8px', display: 'flex' }}>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                </div>
+                <div>
+                  <div style={{ fontSize: '0.8rem', opacity: 0.6, marginBottom: '0.2rem' }}>Instagram</div>
+                  <a href="https://www.instagram.com/petikmadu.id?igsh=ZGJhaG82NHV6ZnZi" target="_blank" rel="noopener noreferrer" style={{ color: 'white', textDecoration: 'none', fontWeight: 600 }}>petikmadu.id</a>
+                </div>
+              </div>
+
+              {/* Address */}
               <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
                 <div style={{ background: 'rgba(255,255,255,0.1)', padding: '0.5rem', borderRadius: '8px', display: 'flex' }}>
                   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
