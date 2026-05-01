@@ -13,10 +13,8 @@ export default function CatalogPage() {
   const t = translations[language];
 
   const products = [
-    { name: 'Madu Akasia', image: '/katalog/MADU_AKASIA.png', price: 'Rp 50.000', weight: '500g' },
-    { name: 'Madu Kaliandra', image: '/katalog/MADU_KALIANDRA.png', price: 'Rp 77.000', weight: '500g' },
-    { name: 'Madu Kelengkeng', image: '/katalog/MADU_KELENGKENG.png', price: 'Rp 130.000', weight: '500g' },
-    { name: 'Madu Randu', image: '/katalog/MADU_RANDU.png', price: 'Rp 130.000', weight: '500g' },
+    { name: 'Madu Randu', image: '/katalog/MADU_RANDU.png', price: 'Rp 130.000', link: 'https://s.shopee.co.id/40d0ncJ9mR' },
+    { name: 'Madu Kelengkeng', image: '/katalog/MADU_KELENGKENG.png', price: 'Rp 130.000', link: 'https://s.shopee.co.id/9UxxLrjJD9' },
   ];
 
   return (
@@ -40,7 +38,7 @@ export default function CatalogPage() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-4" style={{ gap: '2rem' }}>
+        <div className="grid grid-cols-2" style={{ gap: '2rem', maxWidth: '800px', margin: '0 auto' }}>
           {products.map((product, idx) => (
             <motion.div
               key={idx}
@@ -65,18 +63,13 @@ export default function CatalogPage() {
                   style={{ width: '100%', height: '100%', objectFit: 'contain' }}
                 />
               </div>
-              <h3 style={{ marginBottom: '0.5rem', fontSize: '1.25rem' }}>{product.name}</h3>
-              <div style={{ fontSize: '0.85rem', opacity: 0.6, marginBottom: '1rem' }}>{product.weight}</div>
+              <h3 style={{ marginBottom: '1rem', fontSize: '1.25rem' }}>{product.name}</h3>
               <div style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--secondary)', marginBottom: '1.5rem' }}>
                 {product.price}
               </div>
               
               <a 
-                href={`https://wa.me/6281226677599?text=${encodeURIComponent(
-                  language === 'id' 
-                    ? `Halo MADU RIMBA RAYA, saya tertarik untuk membeli ${product.name} (${product.weight}) dengan harga ${product.price}. Bagaimana cara pemesanannya?`
-                    : `Hello MADU RIMBA RAYA, I am interested in buying ${product.name} (${product.weight}) for ${product.price}. How can I order it?`
-                )}`}
+                href={product.link}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary" 

@@ -43,7 +43,12 @@ export default function HoneyTypes() {
               <img 
                 src={honey.image} 
                 alt={honey.name} 
-                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                style={{ 
+                  width: '100%', 
+                  height: '100%', 
+                  objectFit: 'cover',
+                  transform: honey.id === 'akasia' ? 'scale(1.4)' : 'scale(1)' 
+                }}
               />
             </div>
             <h3>{honey.name}</h3>
@@ -101,7 +106,13 @@ export default function HoneyTypes() {
                     <img 
                       src={selectedHoney.image} 
                       alt={selectedHoney.name} 
-                      style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                      style={{ 
+                        width: '100%', 
+                        height: '100%', 
+                        objectFit: 'cover', 
+                        display: 'block',
+                        transform: selectedHoney.id === 'akasia' ? 'scale(1.4)' : 'scale(1)'
+                      }}
                     />
                   </div>
                   <div>
