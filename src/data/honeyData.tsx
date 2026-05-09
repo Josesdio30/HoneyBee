@@ -55,6 +55,10 @@ export interface Translation {
   nav_myth: string;
   nav_quiz: string;
   nav_video: string;
+  nav_about_wisata: string;
+  about_wisata_title: string;
+  about_wisata_tag: string;
+  about_wisata_desc: string;
   ecommerce_brand: string;
   nav_katalog: string;
   catalog_title: string;
@@ -116,6 +120,10 @@ export const translations: Record<Language, Translation> = {
     nav_myth: "Mitos",
     nav_quiz: "Quiz",
     nav_video: "Keaslian",
+    nav_about_wisata: "Wisata",
+    about_wisata_title: "About Wisata Petik Madu",
+    about_wisata_tag: "Ekowisata",
+    about_wisata_desc: "Tonton video edukasi dan dokumentasi eksklusif dari kegiatan Wisata Petik Madu kami.",
     ecommerce_brand: "MADU RIMBA RAYA",
     nav_katalog: "Katalog",
     catalog_title: "Katalog Produk Kami",
@@ -175,6 +183,10 @@ export const translations: Record<Language, Translation> = {
     nav_myth: "Myths",
     nav_quiz: "Quiz",
     nav_video: "Authenticity",
+    nav_about_wisata: "Harvesting Tour",
+    about_wisata_title: "About Wisata Petik Madu",
+    about_wisata_tag: "Ecotourism",
+    about_wisata_desc: "Watch exclusive educational videos and documentation from our Honey Harvesting Tour events.",
     ecommerce_brand: "MADU RIMBA RAYA",
     nav_katalog: "Catalog",
     catalog_title: "Our Product Catalog",
@@ -312,16 +324,56 @@ export interface FlowerType {
 
 export const flowers: Record<Language, FlowerType[]> = {
   id: [
-    { name: 'Bunga Randu', traits: 'Putih kekuningan, nektar melimpah.', bees: ['Apis cerana', 'Apis mellifera'], image: '/bunga/bunga_randu.JPG' },
-    { name: 'Bunga Kelengkeng', traits: 'Kecil bergerombol, aroma harum.', bees: ['Apis mellifera', 'Apis cerana'], image: '/bunga/bunga_kelengkeng.JPG' },
-    { name: 'Bunga Kaliandra', traits: 'Merah/putih, bentuk sikat botol.', bees: ['Apis mellifera', 'Apis cerana'], image: '/bunga/bunga_kaliandra.JPG' },
-    { name: 'Bunga Akasia', traits: 'Kecil bergerombol, mudah dijangkau.', bees: ['Apis mellifera'], image: '/bunga/bunga_akasia.WEBP' }
+    {
+      name: 'Bunga Randu',
+      traits: 'Bunga randu berasal dari pohon kapuk randu yang banyak tumbuh di daerah tropis. Bunga ini menjadi salah satu sumber nektar utama bagi lebah madu karena menghasilkan nektar dalam jumlah cukup melimpah saat musim berbunga. Madu randu umumnya berwarna kuning cerah hingga keemasan, memiliki rasa manis ringan, dan aroma yang lembut. Karena karakter rasanya yang tidak terlalu tajam, madu randu cukup digemari dan sering dijadikan madu konsumsi harian. Selain itu, musim berbunga randu biasanya dimanfaatkan para peternak lebah untuk meningkatkan produksi madu.',
+      bees: ['Apis cerana', 'Apis mellifera'],
+      image: '/bunga/bunga_randu.JPG'
+    },
+    {
+      name: 'Bunga Kelengkeng',
+      traits: 'Bunga kelengkeng menjadi sumber nektar yang menghasilkan madu dengan aroma harum dan cita rasa khas buah kelengkeng. Saat pohon kelengkeng berbunga, lebah akan aktif mengumpulkan nektar dari bunga-bunga kecilnya yang kaya kandungan gula alami. Madu kelengkeng biasanya berwarna kuning keemasan hingga cokelat muda dengan rasa manis yang lebih kuat dibanding beberapa jenis madu lainnya. Banyak orang menyukai madu kelengkeng karena memiliki rasa yang unik, harum alami, dan sering dipercaya mengandung nutrisi yang baik untuk menjaga stamina tubuh.',
+      bees: ['Apis mellifera', 'Apis cerana'],
+      image: '/bunga/bunga_kelengkeng.JPG'
+    },
+    {
+      name: 'Bunga Kaliandra',
+      traits: 'Bunga kaliandra merupakan salah satu tanaman favorit dalam budidaya lebah madu karena mampu menghasilkan nektar dalam jumlah besar hampir sepanjang tahun. Tanaman ini memiliki bunga berwarna merah atau putih yang sangat menarik bagi lebah. Madu kaliandra umumnya berwarna lebih gelap dengan rasa manis legit dan sedikit pahit di akhir. Kandungan nektar yang melimpah membuat bunga kaliandra sangat membantu peternak lebah dalam menjaga ketersediaan pakan lebah, terutama saat musim bunga lain berkurang. Oleh karena itu, kaliandra sering ditanam di sekitar area peternakan lebah untuk mendukung produksi madu yang stabil.',
+      bees: ['Apis mellifera', 'Apis cerana'],
+      image: '/bunga/bunga_kaliandra.JPG'
+    },
+    {
+      name: 'Bunga Akasia',
+      traits: 'Bunga akasia dikenal sebagai penghasil nektar berkualitas tinggi yang sangat baik untuk lebah madu. Pohon akasia banyak ditanam di berbagai daerah karena mampu tumbuh cepat dan berbunga cukup lebat. Madu akasia memiliki warna yang cenderung lebih jernih dengan rasa manis lembut dan aroma khas yang ringan. Salah satu keunggulan madu akasia adalah teksturnya yang lebih encer dan tidak mudah mengkristal. Oleh sebab itu, madu akasia sering dianggap sebagai salah satu jenis madu premium yang memiliki cita rasa halus dan nyaman dikonsumsi semua kalangan.',
+      bees: ['Apis mellifera'],
+      image: '/bunga/bunga_akasia.WEBP'
+    }
   ],
   en: [
-    { name: 'Randu Flower', traits: 'Yellowish white, abundant nectar.', bees: ['Apis cerana', 'Apis mellifera'], image: '/bunga/bunga_randu.JPG' },
-    { name: 'Longan Flower', traits: 'Small clusters, fragrant aroma.', bees: ['Apis mellifera', 'Apis cerana'], image: '/bunga/bunga_kelengkeng.JPG' },
-    { name: 'Kaliandra Flower', traits: 'Red/white, bottle brush shape.', bees: ['Apis mellifera', 'Apis cerana'], image: '/bunga/bunga_kaliandra.JPG' },
-    { name: 'Acacia Flower', traits: 'Small clusters, easy to reach.', bees: ['Apis mellifera'], image: '/bunga/bunga_akasia.WEBP' }
+    {
+      name: 'Randu Flower',
+      traits: 'Randu flowers originate from the kapok randu tree, which grows widely in tropical regions. This flower is a major nectar source for honey bees due to its abundant nectar production during the blooming season. Randu honey is generally bright yellow to golden, with a mild sweet taste and a delicate aroma. Because of its subtle flavor profile, randu honey is highly popular and commonly consumed daily. Beekeepers also actively utilize the randu blooming season to boost honey yields.',
+      bees: ['Apis cerana', 'Apis mellifera'],
+      image: '/bunga/bunga_randu.JPG'
+    },
+    {
+      name: 'Longan Flower',
+      traits: 'Longan flowers serve as a rich nectar source that yields honey with a fragrant aroma and a distinct longan fruit flavor. When longan trees bloom, bees actively gather nectar from their small flowers, which are rich in natural sugars. Longan honey typically ranges from golden yellow to light brown, featuring a sweeter taste compared to other honey types. Many prefer longan honey for its unique flavor, natural fragrance, and its widely believed benefits in maintaining physical stamina.',
+      bees: ['Apis mellifera', 'Apis cerana'],
+      image: '/bunga/bunga_kelengkeng.JPG'
+    },
+    {
+      name: 'Kaliandra Flower',
+      traits: 'Kaliandra flowers are a favorite in honey bee cultivation as they produce a massive amount of nectar almost year-round. This plant features bright red or white flowers that are highly attractive to bees. Kaliandra honey is generally darker, offering a rich sweet taste with a slight bitter hint at the end. The abundant nectar of the Kaliandra flower helps beekeepers maintain bee feed availability, especially when other flowers are out of season. Consequently, Kaliandra is often planted around bee farms to support stable honey production.',
+      bees: ['Apis mellifera', 'Apis cerana'],
+      image: '/bunga/bunga_kaliandra.JPG'
+    },
+    {
+      name: 'Acacia Flower',
+      traits: 'Acacia flowers are known to produce high-quality nectar that is excellent for honey bees. Acacia trees are widely planted across various regions due to their rapid growth and abundant blooms. Acacia honey tends to be clearer in color, with a mild sweet taste and a subtle, distinctive aroma. One key advantage of acacia honey is its lighter texture and resistance to crystallization. As such, acacia honey is widely regarded as a premium honey variety with a smooth taste, suitable for everyone.',
+      bees: ['Apis mellifera'],
+      image: '/bunga/bunga_akasia.WEBP'
+    }
   ]
 };
 

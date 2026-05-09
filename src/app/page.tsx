@@ -9,6 +9,7 @@ import VideoSection from '@/components/VideoSection';
 import Debunking from '@/components/Debunking';
 import Quiz from '@/components/Quiz';
 import Footer from '@/components/Footer';
+import AboutWisata from '@/components/AboutWisata';
 import { useLanguage } from '@/LanguageContext';
 import { translations } from '@/data/honeyData';
 
@@ -51,6 +52,9 @@ export default function Home() {
           <Quiz />
         </div>
       </section>
+
+      {/* Wisata Petik Madu */}
+      <AboutWisata />
 
       {/* Katalog Produk — Khusus Mobile (atau scroll target) */}
       <section id="katalog-section" className="mobile-only section" style={{ background: 'var(--background)' }}>

@@ -19,10 +19,11 @@ export default function BeeFlower() {
            whileInView={{ opacity: 1, x: 0 }}
            viewport={{ once: true }}
         >
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.5rem', color: 'var(--secondary)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.25rem', color: 'var(--secondary)' }}>
             <Bug size={32} />
             <h2>{t.bees_title}</h2>
           </div>
+          <p style={{ fontSize: '0.75rem', opacity: 0.5, marginBottom: '1.5rem', fontWeight: 600, color: 'var(--secondary)', letterSpacing: '0.05em' }}>SOURCE = GEMINI AI</p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
             {beeList.map((bee, idx) => (
               <motion.div 
@@ -62,7 +63,7 @@ export default function BeeFlower() {
               <motion.div 
                 key={idx} 
                 className="card" 
-                style={{ display: 'flex', gap: '1.5rem', alignItems: 'center', padding: '1.5rem', background: 'var(--white)' }}
+                style={{ display: 'flex', gap: '1.5rem', alignItems: 'flex-start', padding: '1.5rem', background: 'var(--white)' }}
                 whileHover={{ x: 10 }}
               >
                 <div style={{ width: '80px', height: '80px', borderRadius: '16px', overflow: 'hidden', flexShrink: 0, boxShadow: '0 4px 10px rgba(0,0,0,0.1)' }}>
@@ -93,9 +94,10 @@ export default function BeeFlower() {
       >
         <span className="tag">The Synergy</span>
         <h2>{t.relationship_title}</h2>
-        <p style={{ margin: '1rem auto', maxWidth: '700px', opacity: 0.8 }}>
+        <p style={{ margin: '1rem auto 0.5rem auto', maxWidth: '700px', opacity: 0.8 }}>
           {t.relationship_desc}
         </p>
+        <p style={{ fontSize: '0.75rem', opacity: 0.5, marginBottom: '0.5rem', fontWeight: 600, color: 'var(--secondary)', letterSpacing: '0.05em' }}>SOURCE = GEMINI AI</p>
       </motion.div>
 
       <div className="grid grid-cols-3" style={{ gap: '2rem' }}>
